@@ -1,0 +1,32 @@
+﻿@model IEnumerable<mvc.Dtos.CategoryDto>
+@{
+    ViewData["Title"] = "Category Index";
+
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Operations</th>
+            <th>Operations</th>
+
+        </tr>
+    </thead>
+
+    
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Name</td>
+                <td> <a  href="Categories/Update/@x.Id" class="btn btn-sm btn-warning">Update</a></td>
+                <td><a @Url.Action("Delete") class="btn btn-sm btn-danger">Delete</a></td>
+            </tr>
+        }
+        </tbody>
+   
+
+</table>
+<a class="btn btn-primary" asp-action="Create">Create</a>
